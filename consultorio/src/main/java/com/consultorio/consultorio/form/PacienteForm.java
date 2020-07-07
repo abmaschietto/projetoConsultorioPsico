@@ -46,10 +46,13 @@ public class PacienteForm {
 		Optional<Pacientes> findById = pacienteRepo.findById(id);
 		if(findById.isPresent()) {
 			Pacientes paciente = findById.get();
-			Doutores doutor = doutorRepo.getOne(form.getDoutor());
-			paciente.setDoutor(doutor);
-			paciente.setMotivoConsulta(this.motivo);
-			paciente.setNome(this.nome);
+			Optional<Doutores> doutorOp = doutorRepo.findById(form.getDoutor());
+			if(doutorOp.isPresent()) {
+				Doutores doutor = doutorOp.get();
+				paciente.setDoutor(doutor);
+				paciente.setMotivoConsulta(this.motivo);
+				paciente.setNome(this.nome);
+			}
 			return paciente;
 		}else {
 			return null;

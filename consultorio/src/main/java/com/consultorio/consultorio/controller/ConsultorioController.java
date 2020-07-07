@@ -74,8 +74,8 @@ public class ConsultorioController {
 	public ResponseEntity<?> atualizarPaciente(@PathVariable(name = "id", required = true) Long id, @RequestBody PacienteForm form){
 		Pacientes paciente  = form.atualizar(id, form, doutorRepo, pacienteRepo);
 		pacienteRepo.save(paciente);
-		List<Pacientes> lista = pacienteRepo.findAll();
-		return ResponseEntity.ok(lista);
+//		List<Pacientes> lista = pacienteRepo.findAll();
+		return ResponseEntity.ok(paciente);
 	}
 	
 	@ApiOperation(value = "Atualiza as informações de um doutor")
