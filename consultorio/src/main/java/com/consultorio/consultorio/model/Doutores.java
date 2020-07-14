@@ -25,12 +25,21 @@ public class Doutores implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotEmpty(message = "O campo nome precisa estar preenchdio")
+	@NotEmpty(message = "O campo nome precisa estar preenchido")
 	private String nome;
 	@NotNull @Min(value = 111111) @Max(value = 999999)
 	private Long CRP;
+	@NotEmpty(message = "O campo especialidade precisa estar preenchido")
+	private String especialidade;
 	
 	
+	
+	public String getEspecialidade() {
+		return especialidade;
+	}
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
 	public Long getCRP() {
 		return CRP;
 	}

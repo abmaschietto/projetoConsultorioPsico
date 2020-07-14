@@ -1,5 +1,8 @@
 <template>
   <div>
+
+    <img class="responsive-img" src="../assets/paciente.jpg">
+
     <h2 class="centralizado">Lista de pacientes</h2>
 
     <table class="striped centered">
@@ -15,28 +18,28 @@
         <tr>
           <td>{{ paciente.nome }}</td>
           <td>{{ paciente.motivoConsulta }}</td>
-          <td>{{ paciente.doutor.nome}}</td>
+          <td> <router-link to='/doutores'>{{ paciente.doutor.nome }} </router-link></td>
         
-        <botao @atualizar='atualiza(paciente)'/>
+        <botao @atualizar='atualiza(paciente)' @deletar='deletar(paciente)'/>
         </tr>
 
 
       </tbody>
     </table>
 <br><br>
-    <h3 class="centralizado">Cadastro de pacientes</h3>
+    <h3 class="centralizado">{{estado }}</h3>
     <div class="row" id="cadastro">
 
-
+        
       <form class="col s12" @submit.prevent="gravar">
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="Nome" id="first_name" type="text" class="validate" v-model="paciente.nome" />
-            <label for="first_name" class="campoAdd">Nome</label>
+            <input  id="nome" type="text" class="validate" v-model="paciente.nome" />
+            <label for="nome">Nome</label>
         </div> 
           <div class="input-field col s12">
-            <input placeholder="Problema" id="problema" type="text" class="validate" v-model='paciente.motivo' />
-            <label for="problema">Nos conte seu problema</label>
+            <input id="problema" type="text" class="validate" v-model='paciente.motivo' />
+            <label for="problema">Motivo Consulta</label>
             <div>
               <div class="row">
                 <div class="input-field col s8">
@@ -53,10 +56,12 @@
           </div>
         </div>
 
-        <button class="waves-effect waves-light  red lighten-1 btn-large"><i class="material-icons">save</i></button>
+        <button class=" btn-floating waves-effect waves-light  red lighten-1 btn-large pulse "><i class="material-icons">save</i></button> 
+        <a @click="limparDados" class="btn-floating btn-large pulse waves-effect waves-light red"><i class="material-icons">add</i></a>
         
       </form>
     </div>
+    <rodape />
   </div>
 </template>
 
@@ -68,6 +73,7 @@ export default {
   mounted(){
     this.listar(),
     this.listaDoc()
+
   },
 
   components:{
@@ -83,7 +89,8 @@ export default {
         id:''
       },
       doutores: [],
-      erros:[]
+      erros:[],
+      estado:'Cadastro de pacientes'
 
     }
   },
@@ -120,22 +127,30 @@ export default {
       }
     },
     atualiza(paciente){
-      console.log(this.paciente);
-      
+      this.estado =  "Atualizando paciente " + paciente.nome
       this.paciente.nome = paciente.nome,
       this.paciente.motivo = paciente.motivoConsulta,
       this.doutor = paciente.doutor.id
       this.paciente.id = paciente.id
       
+    },
+    limparDados(){
+      this.paciente = {}
+      this.estado = "Novo Cadastro"  
+    },
+    deletar(paciente){ 
+      PService.deletarPaciente(paciente)
+      .then(()=>{
+        this.listar()
+      }).catch(err =>{
+        this.erros = err.response.data
+      })
     }
   }
-};
+}
 </script>
 
 <style  scoped>
-
-
-
 .centralizado{
   text-align: center;
 }

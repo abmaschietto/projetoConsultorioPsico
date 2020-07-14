@@ -12,7 +12,10 @@ export default {
             this.$emit('atualizar')
         },
         deletar(){
-            this.$emit('deletar')
+            if(confirm('Deseja deletar??')){
+                 this.$emit('deletar')
+            }
+           
         }
     }
 }

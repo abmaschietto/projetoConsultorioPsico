@@ -1,15 +1,29 @@
 <template>
     <div>
-        <h2>Home</h2>
+         <img class="responsive-img" src="../assets/consultorio2.jpg">
+        <h2 class="centralizado">Nossa missão</h2>
+        <juramento />
+        <larissa />
+        <rodape />
     </div>
 </template>
 
 <script>
+import Juramento from './shared/juramento'
+import Larissa from './shared/cardLarissa'
 export default {
+    components:{
+        juramento: Juramento,
+        larissa: Larissa
+
+    }
     
 }
 </script>
 
-<style>
+<style scoped>
+.centralizado{
+    text-align: center;
+}
 
 </style>

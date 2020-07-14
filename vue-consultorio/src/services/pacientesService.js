@@ -12,5 +12,8 @@ export default {
     },
     atualizarPaciente:(paciente)=>{
         return http.put('/pacientes/'+ paciente.id, paciente)
+    },
+    deletarPaciente:(paciente)=>{
+        return http.delete('/pacientes/'+paciente.id, paciente)
     }
 }
