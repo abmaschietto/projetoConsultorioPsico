@@ -37,6 +37,11 @@ public class ConsultorioController {
 	
 	@Autowired
 	private DoutoresRepository doutorRepo;
+	
+	@GetMapping("/hello")
+	public String hello() {
+		return "Olá";
+	}
 
 	@ApiOperation(value = "Busca uma lista de pacientes")
 	@GetMapping(value = "/pacientes")
