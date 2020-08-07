@@ -66,7 +66,6 @@
 </template>
 
 <script>
-import PService from '../services/pacientesService';
 import Botoes from './shared/Botoes';
 
 export default {
@@ -96,20 +95,20 @@ export default {
   },
   methods:{
     listar(){
-      PService.listar()
+      this.$http.get('api/pacientes')
       .then(res => {
         this.pacientes = res.data
       })    
     },
     listaDoc(){
-      PService.listarDoutores()
+      this.$http.get('api/doutores')
       .then(res =>{
         this.doutores = res.data
       })
     },
     gravar(){
       if(this.paciente.id){
-        PService.atualizarPaciente(this.paciente)
+        this.$http.put('api/pacientes/' + this.paciente.id, this.paciente)
         .then(() =>{
           this.listar()
           this.paciente = {}
@@ -117,7 +116,7 @@ export default {
           this.erros = error.response.data
         })    
       }else{
-      PService.gravarPaciente(this.paciente)
+      this.$http.post('api/pacientes', this.paciente)
       .then(()=>{
         this.listar()
         this.paciente = {}
@@ -139,7 +138,7 @@ export default {
       this.estado = "Novo Cadastro"  
     },
     deletar(paciente){ 
-      PService.deletarPaciente(paciente)
+      this.$http.delete('api/pacientes/' + paciente.id, paciente)
       .then(()=>{
         this.listar()
       }).catch(err =>{

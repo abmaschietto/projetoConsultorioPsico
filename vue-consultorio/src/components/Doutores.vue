@@ -76,7 +76,6 @@
 </template>
 
 <script>
-import DService from '../services/doutorService';
 import Botoes from './shared/Botoes';
 
 export default {
@@ -100,14 +99,14 @@ export default {
 
     methods:{
         listar(){
-            DService.listar()
+            this.$http.get('api/doutores')
             .then((res) =>{
                 this.doutores = res.data
             })
         },
         gravar(){
             if(!this.doutor.id){
-                DService.cadastrar(this.doutor)
+                this.$http.post('api/doutores', this.doutor)
                 .then(()=>{
                     this.doutor = {}
                     this.listar()
@@ -115,7 +114,7 @@ export default {
                     this.erros = err.response.data
                 })
             }else{
-                DService.atualizar(this.doutor)
+                this.$http.put('api/doutores/' + this.doutor.id, this.doutor)
                 .then(()=>{
                     this.doutor = {}
                     this.listar()
@@ -133,7 +132,7 @@ export default {
             this.doutor = {}
         },
         deleta(doutor){
-            DService.deleta(doutor)
+            this.$http.delete('api/doutores/' + doutor.id, doutor)
             .then(( ) =>{
                 this.listar()
             }).catch(err =>{

@@ -1,21 +1,21 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Navegacao from './components/shared/navegacao'
-import VueRouter from 'vue-router'
-import { routes } from './routes'
 import Footer from './components/shared/footer'
+import http from '@/services/http'
+import store from '@/store/index'
+import router from './routes'
 
-Vue.use(VueRouter);
+
 Vue.config.productionTip = false
 Vue.component('navegador', Navegacao);
 Vue.component('rodape', Footer)
 
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-})
+Vue.prototype.$http = http
+
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')
