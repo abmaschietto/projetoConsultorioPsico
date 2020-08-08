@@ -1,7 +1,7 @@
 <template>
     <div class="botoes">
-        <button @click="atualizar" class="waves-effect btn teal darken-2 offset-s6"><i class="material-icons">edit</i></button>
-        <button @click='deletar' class="waves-effect btn red darken-1 col s6 offset-s6"><i class="material-icons">delete_sweep</i></button>
+        <button @click="atualizar" class="waves-effect btn red lighten-1 offset-s6"><i class="material-icons">edit</i></button>
+        <button @click='deletar' class="waves-effect btn red lighten-1 col s6 offset-s6"><i class="material-icons">delete_sweep</i></button>
     </div>
 </template>
 

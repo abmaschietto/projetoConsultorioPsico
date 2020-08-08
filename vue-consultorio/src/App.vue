@@ -2,7 +2,7 @@
   <div id="app"> 
     <navegador  />
     <router-view/>
-
+    <rodape id="foot" />
   </div>
 </template>
 
@@ -18,7 +18,16 @@ export default {
 }
 </script>
 
-<style>
+<style  scoped>
 
+  .foot {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
-</style>
+  .foot {
+    flex: 1 0 auto;
+  }
+</style>>
+

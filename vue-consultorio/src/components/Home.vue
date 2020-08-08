@@ -4,7 +4,7 @@
         <h2 class="centralizado">Nossa missão</h2>
         <juramento />
         <larissa />
-        <rodape />
+
     </div>
 </template>
 

@@ -68,10 +68,10 @@
             </div>
         </div>
          <button class="btn-floating waves-effect waves-light red btn-large pulse"><i class="material-icons">save</i></button> 
-        <a @click='limpaDados' class="btn-floating btn-large pulse waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <a @click='limpaDados' class="btn-floating btn-large pulse waves-effect waves-light red"><i class="material-icons">person_add</i></a>
         </form>
    </div>
-    <rodape />
+
 </div>   
 </template>
 

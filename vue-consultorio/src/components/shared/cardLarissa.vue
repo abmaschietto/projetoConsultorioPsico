@@ -11,7 +11,7 @@
           <div class="col s10">
             <span class="black-text">
               <blockquote>
-                "Se eu consegui curar meu namorado, eu posso curar qualquer maluco"
+                "O que é necessário para mudar uma pessoa é mudar sua consciência de si mesma. Quem olha para fora sonha, quem olha para dentro desperta."
                 <br />
                 <p>-- Larissa Aleixo</p>
               </blockquote>

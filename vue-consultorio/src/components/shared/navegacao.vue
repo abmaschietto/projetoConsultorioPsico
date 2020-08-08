@@ -5,7 +5,9 @@
                 <router-link to="/pepe" v-if="usuarioLogado"><a href="" class="brand-logo center">Bem vindo  -   {{pegarApelido}}</a></router-link>
                 <router-link to="/pepe" v-else><a href="" class="brand-logo center">CLÍNICA LARISSA   </a></router-link>
                 <ul class="right hide-on-med-and-down">
-                <li><button @click.prevent='logout()'> Logout</button></li>
+                
+                <li>
+                    <button class="btn waves-effect waves-light red accent-4" @click.prevent='logout()'> Logout</button></li>
                 </ul>
                 <ul class="left hide-on-med-and-down">
                     <li><router-link to='/pacientes'> Pacientes</router-link></li>

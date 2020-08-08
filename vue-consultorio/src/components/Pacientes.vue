@@ -2,7 +2,7 @@
   <div>
 
     <img class="responsive-img" src="../assets/paciente.jpg">
-
+    <div class="container">
     <h2 class="centralizado">Lista de pacientes</h2>
 
     <table class="striped centered">
@@ -26,11 +26,16 @@
 
       </tbody>
     </table>
+    </div>
 <br><br>
     <h3 class="centralizado">{{estado }}</h3>
-    <div class="row" id="cadastro">
 
-        
+     <p class="flow-text centralizado card-panel red lighten-1" v-if="erros">Ops, algum erro aconteceu no seu formulário de cadastro.
+       Todos campos estão cadastrados?
+
+     </p>
+    <div class="row" id="cadastro">
+      <div class="container">
       <form class="col s12" @submit.prevent="gravar">
         <div class="row">
           <div class="input-field col s12">
@@ -57,11 +62,11 @@
         </div>
 
         <button class=" btn-floating waves-effect waves-light  red lighten-1 btn-large pulse "><i class="material-icons">save</i></button> 
-        <a @click="limparDados" class="btn-floating btn-large pulse waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <a @click="limparDados" class="btn-floating btn-large pulse waves-effect waves-light red lighten-1"><i class="material-icons">person_add</i></a>
         
       </form>
+      </div>
     </div>
-    <rodape />
   </div>
 </template>
 
@@ -88,7 +93,7 @@ export default {
         id:''
       },
       doutores: [],
-      erros:[],
+      erros:'',
       estado:'Cadastro de pacientes'
 
     }
@@ -114,6 +119,7 @@ export default {
           this.paciente = {}
         }).catch(error =>{
           this.erros = error.response.data
+
         })    
       }else{
       this.$http.post('api/pacientes', this.paciente)
@@ -129,7 +135,7 @@ export default {
       this.estado =  "Atualizando paciente " + paciente.nome
       this.paciente.nome = paciente.nome,
       this.paciente.motivo = paciente.motivoConsulta,
-      this.doutor = paciente.doutor.id
+      this.doutor = paciente.doutor
       this.paciente.id = paciente.id
       
     },

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <footer class="page-footer">
+        <footer class="page-footer fixed">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -34,5 +34,7 @@ export default {
 </script>
 
 <style  scoped>
+
+
 
 </style>
