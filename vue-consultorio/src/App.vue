@@ -1,19 +1,31 @@
 <template>
   <div id="app"> 
-    <navegador  />
+    <div v-if="isMobile()">
+      <menuMobile />
+    </div>
+    <div v-else>
+      <navegador  />
+    </div>
     <router-view/>
     <rodape id="foot" />
   </div>
 </template>
 
 <script>
-
+import { DetectMobile } from '@/Mixins/DetectMobile'
 export default {
   name: 'App',
-  components:{
+  mixins: [DetectMobile],
 
+  mounted(){
+   this.isMobile()
+  
+  },
+  data(){
+    return{
+      con: false
+    }
   }
-
   
 }
 </script>

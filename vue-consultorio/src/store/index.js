@@ -16,7 +16,8 @@ const mutations = {
 
     },
     DESLOGAR_USER(state){
-        state.token = ''
+        state.token = '',
+        localStorage.removeItem('token')
     }
 }
 

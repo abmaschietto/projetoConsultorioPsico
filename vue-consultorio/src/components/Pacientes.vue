@@ -47,16 +47,16 @@
             <label for="problema">Motivo Consulta</label>
             <div>
               <div class="row">
-                <div class="input-field col s8">
+                <div class="input-field col s12">
                   <input disabled value="Doutores disponíveis" id="doutores" type="text" class="validate" />
                 </div>
               </div>
-             <p>
+             
                 <label v-for="doutor in doutores" :key="doutor.id">
                   <input class="with-gap" name="group1" type="radio" :value='doutor.id' v-model="paciente.doutor" />
                   <span>{{doutor.nome}}</span>
                 </label>
-             </p>
+             
             </div>
           </div>
         </div>

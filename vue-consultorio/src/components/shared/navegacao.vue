@@ -2,10 +2,13 @@
     <div>
         <nav>
             <div class="nav-wrapper">
-                <router-link to="/pepe" v-if="usuarioLogado"><a href="" class="brand-logo center">Bem vindo  -   {{pegarApelido}}</a></router-link>
-                <router-link to="/pepe" v-else><a href="" class="brand-logo center">CLÍNICA LARISSA   </a></router-link>
+                <h5 class="brand-logo center" v-if="usuarioLogado">Bem vindo  -   {{pegarApelido}}</h5>
+                <h5 class="brand-logo center" v-else>CLÍNICA LARISSA   </h5>
+
+   
+
+                <!-- Menu Desktop-->
                 <ul class="right hide-on-med-and-down">
-                
                 <li>
                     <button class="btn waves-effect waves-light red accent-4" @click.prevent='logout()'> Logout</button></li>
                 </ul>
@@ -21,6 +24,7 @@
 </template>
 
 <script> 
+
 export default {
     data(){
         return{
@@ -28,7 +32,7 @@ export default {
         }
     },
     mounted(){
-        this.teste()
+
     },
     computed:{
         usuarioLogado(){
@@ -42,11 +46,8 @@ export default {
     methods:{
         logout(){
             this.$store.commit('DESLOGAR_USER')
-            this.$router.push({name:'login'})
-        },
-        teste(){
-            { console.log(this.$store.state);}
             
+            this.$router.push({name:'login'})
         }
     }
 }

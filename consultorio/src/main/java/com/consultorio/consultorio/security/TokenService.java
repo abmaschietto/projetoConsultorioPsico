@@ -28,7 +28,7 @@ public class TokenService {
 				.setIssuer("Api Consultório")
 				.setSubject(principal.getId().toString()) // é passado o id do usuário transformado em string
 				.setIssuedAt(expedido)
-				.setExpiration(expirador)
+//				.setExpiration(expirador)  desativado para não expirar até acabar a sessão orgânicamente
 				.signWith(SignatureAlgorithm.HS256, this.secret)
 				.compact();
 				
