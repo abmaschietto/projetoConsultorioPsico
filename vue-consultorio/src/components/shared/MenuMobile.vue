@@ -6,16 +6,16 @@
         <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title">
-            Bem vindo
+           <h4> Bem vindo</h4>
           </v-list-item-title>
           <v-list-item-subtitle>
-            {{pegarApelido}}
+            <h5>{{pegarApelido}}</h5>
           </v-list-item-subtitle>
            <v-divider></v-divider>
                 <v-list dense nav>
                     <v-list-item-content><router-link to='/login'>Login</router-link> </v-list-item-content>
                     <v-list-item-content><router-link to='/inicial'> Nos conheça</router-link></v-list-item-content>
-                    <v-list-item-content><router-link to='/pacientes'> Pacientes</router-link></v-list-item-content>
+                    <v-list-item-content><router-link to='/pacientes' > Pacientes</router-link></v-list-item-content>
                     <v-list-item-content><router-link to='/doutores'> Doutores</router-link></v-list-item-content>
                     <v-divider></v-divider>
                     <v-list-item-content><button class="btn waves-effect waves-light red accent-4" @click.prevent='logout()'> Logout</button></v-list-item-content>

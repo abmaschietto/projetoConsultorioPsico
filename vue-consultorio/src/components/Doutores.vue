@@ -10,15 +10,13 @@
           <th>Nome</th>
           <th>CRP</th>
           <th>Especialidade</th>
-          <th>Disponibilidade</th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="doutor in doutores" :key="doutor.id">
+      <tbody v-for="doutor in doutores" :key="doutor.id">
+        <tr >
           <td>{{ doutor.nome }}</td>
           <td>{{ doutor.crp }}</td>
           <td>{{ doutor.especialidade }}</td>
-          <td>Disponível</td>
           <botao @atualizar='att(doutor)' @deletar='deleta(doutor)'/>
         </tr>
       </tbody>
@@ -45,7 +43,6 @@
 
     </blockquote>
 </div>
-    <div class="row">
         <form class="col s12" @submit.prevent="gravar()">
         <div class="row">
             <div class="input-field col s6">
@@ -70,7 +67,7 @@
          <button class="btn-floating waves-effect waves-light red btn-large pulse"><i class="material-icons">save</i></button> 
         <a @click='limpaDados' class="btn-floating btn-large pulse waves-effect waves-light red"><i class="material-icons">person_add</i></a>
         </form>
-   </div>
+   
 
 </div>   
 </template>

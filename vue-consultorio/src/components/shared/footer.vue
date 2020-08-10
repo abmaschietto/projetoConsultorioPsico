@@ -10,9 +10,9 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="/doutores">Seja um colaborador</a></li>
-                  <li><a class="grey-text text-lighten-3" href="/pacientes">Nossos parceiros</a></li>
-                  <li><a class="grey-text text-lighten-3" href="/pepe">Surpresa</a></li>
+                  <li><router-link to='/doutores' class="grey-text text-lighten-3">Seja um colaborador</router-link></li>
+                  <li><router-link to="/pacientes" class="grey-text text-lighten-3">Nossos parceiros</router-link></li>
+                  <li><router-link class="grey-text text-lighten-3" to="/pepe">Surpresa</router-link></li>
                 </ul>
               </div>
             </div>
@@ -20,7 +20,7 @@
           <div class="footer-copyright">
             <div class="container">
             © 2020 Artucrop INC
-            <a class="grey-text text-lighten-4 right" href="#!">GitHub</a>
+            <a class="grey-text text-lighten-4 right" href="https://github.com/abmaschietto">GitHub</a>
             </div>
           </div>
         </footer>
